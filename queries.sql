@@ -30,3 +30,32 @@ CREATE TABLE iucr (
     index_code VARCHAR(255) NOT NULL,
     active BOOLEAN NOT NULL
 );
+
+CREATE TABLE crime_fact_table (
+	id VARCHAR,
+	datetime_id INT,
+	description VARCHAR,
+	location_id INT,
+	community_area INT,
+	iucr VARCHAR,
+	case_number VARCHAR,
+	domestic BOOLEAN,
+	arrest BOOLEAN
+);
+
+CREATE TABLE crime_date_dimension (
+	datetime_id INT,
+	month INT,
+	day INT,
+	year INT,
+	hour INT,
+	crime_date DATE
+);
+
+CREATE TABLE crime_location_dimension (
+	location_id INT primary key,
+	latitude FLOAT,
+	longitude FLOAT,
+	location_description VARCHAR,
+	block VARCHAR
+)
