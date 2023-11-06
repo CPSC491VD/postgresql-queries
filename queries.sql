@@ -40,6 +40,7 @@ CREATE TABLE crime_fact_table (
 	iucr VARCHAR,
 	case_number VARCHAR,
 	domestic BOOLEAN,
+	primary_type VARCHAR(50),
 	arrest BOOLEAN
 );
 
