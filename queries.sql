@@ -46,10 +46,10 @@ CREATE TABLE crime_fact_table (
 
 CREATE TABLE crime_date_dimension (
 	datetime_id INT,
-	month INT,
-	day INT,
-	year INT,
-	hour INT,
+	_month INT,
+	_day INT,
+	_year INT,
+	_hour INT,
 	crime_date DATE
 );
 
