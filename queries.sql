@@ -60,4 +60,11 @@ CREATE TABLE IF NOT EXISTS crime_location_dimension (
 	longitude FLOAT,
 	location_description VARCHAR,
 	block VARCHAR
-)
+);
+
+
+CREATE TABLE IF NOT EXISTS fbi_code (
+	id VARCHAR UNIQUE,
+	description VARCHAR,
+	crime_against VARCHAR
+);
