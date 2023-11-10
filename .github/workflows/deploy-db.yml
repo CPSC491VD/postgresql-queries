@@ -27,9 +27,7 @@ jobs:
         - name: Run Liquibase
           run: |
             # Set up your database connection parameters
-            export DATABASE_URL=jdbc:postgresql://your-database-host:5432/your-database
-            export DATABASE_USERNAME=your-username
-            export DATABASE_PASSWORD=your-password
+            export DATABASE_URL=${{ env.DATABASE_URL }}
 
             # Download Liquibase
             curl -L https://github.com/liquibase/liquibase/releases/download/v4.8.0/liquibase-4.8.0.tar.gz -o liquibase.tar.gz
