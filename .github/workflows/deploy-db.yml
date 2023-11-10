@@ -1,0 +1,38 @@
+name: Deploy Database
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+    id-token: write
+    contents: read  
+
+
+jobs:
+    deploy-database:
+      runs-on: ubuntu-latest
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+    
+        - name: Set up Java
+          uses: actions/setup-java@v2
+          with:
+            distribution: 'adopt'
+            java-version: '11'
+
+        - name: Run Liquibase
+          run: |
+            # Set up your database connection parameters
+            export DATABASE_URL=jdbc:postgresql://your-database-host:5432/your-database
+            export DATABASE_USERNAME=your-username
+            export DATABASE_PASSWORD=your-password
+
+            # Download Liquibase
+            curl -L https://github.com/liquibase/liquibase/releases/download/v4.8.0/liquibase-4.8.0.tar.gz -o liquibase.tar.gz
+            tar -xf liquibase.tar.gz
+
+            ./liquibase --url=$DATABASE_URL changelog.sql
