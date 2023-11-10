@@ -21,6 +21,7 @@ jobs:
       - uses: liquibase/liquibase-github-action@v2
         with:
           operation: 'update'
+          classpath: './'
           changeLogFile: 'changelog.sql'
           username: ${{ env.DATABASE_USERNAME }}
           password: ${{ env.PASSWORD }}
