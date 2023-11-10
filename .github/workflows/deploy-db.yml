@@ -27,10 +27,10 @@ jobs:
         - name: Run Liquibase
           run: |
             # Set up your database connection parameters
-            export DATABASE_URL=jbdc:${{ env.DATABASE_URL }}
+            export DATABASE_URL=jdbc:${{ env.DATABASE_URL }}
 
             # Download Liquibase
             curl -L https://github.com/liquibase/liquibase/releases/download/v4.8.0/liquibase-4.8.0.tar.gz -o liquibase.tar.gz
             tar -xf liquibase.tar.gz
 
-            ./liquibase --url=jbdc:${{ env.DATABASE_URL }} --changeLogFile=changelog.sql --driver=org.postgresql.Driver --log-level=debug update
+            ./liquibase --url=jdbc:${{ env.DATABASE_URL }} --changeLogFile=changelog.sql --driver=org.postgresql.Driver --log-level=debug update
