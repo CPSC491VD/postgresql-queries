@@ -42,4 +42,4 @@ jobs:
             curl -L https://github.com/liquibase/liquibase/releases/download/v4.8.0/liquibase-4.8.0.tar.gz -o liquibase.tar.gz
             tar -xf liquibase.tar.gz
 
-            ./liquibase --url=jdbc:postgres://mahmud.db.elephantsql.com/aaeyeuav --username=$DATABASE_USERNAME --password=$DATABASE_PASSWORD --changeLogFile=changelog.sql --driver=org.postgresql.Driver update
+            ./liquibase --url=$DATABASE_URL --username=$DATABASE_USERNAME --password=$DATABASE_PASSWORD --changeLogFile=changelog.sql --driver=org.postgresql.Driver update
