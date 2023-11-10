@@ -23,6 +23,11 @@ jobs:
           with:
             distribution: 'adopt'
             java-version: '11'
+        - name: Install PostgreSQL JDBC Driver
+          run: |
+            mkdir -p lib
+            latest_version=$(curl -s https://api.github.com/repos/pgjdbc/pgjdbc/releases/latest | jq -r .tag_name)
+            curl -L -o lib/postgresql.jar https://jdbc.postgresql.org/download/$latest_version/postgresql-$latest_version.jar
 
         - name: Run Liquibase
           run: |
