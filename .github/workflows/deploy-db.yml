@@ -33,4 +33,4 @@ jobs:
             curl -L https://github.com/liquibase/liquibase/releases/download/v4.8.0/liquibase-4.8.0.tar.gz -o liquibase.tar.gz
             tar -xf liquibase.tar.gz
 
-            ./liquibase --url=$DATABASE_URL --changeLogFile=changelog.sql update
+            ./liquibase --url=$DATABASE_URL --changeLogFile=changelog.sql --driver=org.postgresql.Driver update
