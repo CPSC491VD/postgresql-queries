@@ -11,7 +11,7 @@ Liquibase is a powerful database schema migration tool and it provides a wide ra
 1. Change author's name in the header of `changelog.sql`
    
     ```
-        --changeset your_name:$(now)
+    --changeset your_name:$(now)
     ``` 
 
 2. Make any update or changes to the schema in `changelog.sql`
