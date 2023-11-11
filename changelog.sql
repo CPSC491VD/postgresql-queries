@@ -44,3 +44,24 @@ CREATE TABLE IF NOT EXISTS fbi_code (
 	description VARCHAR,
 	crime_against VARCHAR
 );
+
+
+CREATE TABLE IF NOT EXISTS tbl_analytics AS (
+SELECT 
+f.id,
+d.crime_date,
+f.description,
+l.latitude,
+l.longitude,
+l.location_description,
+i.primary_description,
+f.case_number,
+fbi.description AS fbi_code_description,
+f.primary_type,
+f.arrest
+FROM crime_fact_table f
+JOIN crime_date_dimension d ON f.datetime_id = d.datetime_id
+JOIN crime_location_dimension l ON l.location_id = f.location_id
+JOIN fbi_code fbi ON fbi.id = f.fbi_code 
+JOIN iucr i ON i.iucr = f.iucr 
+);
