@@ -26,37 +26,3 @@ jobs:
           username: ${{ env.DATABASE_USERNAME }}
           password: ${{ env.PASSWORD }}
           url: jdbc:${{ env.DATABASE_URL }}
-# jobs:
-#     deploy-database:
-#       runs-on: ubuntu-latest
-#       env:
-#         DATABASE_URL: ${{ secrets.DATABASE_URL }}
-#         DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
-#         PASSWORD: ${{ secrets.PASSWORD }}
-#       steps:
-#         - name: Checkout code
-#           uses: actions/checkout@v2
-    
-#         - name: Set up Java
-#           uses: actions/setup-java@v2
-#           with:
-#             distribution: 'adopt'
-#             java-version: '11'
-#         - name: Install PostgreSQL JDBC Driver
-#           run: |
-#             mkdir -p lib
-#             latest_version=$(curl -s https://api.github.com/repos/pgjdbc/pgjdbc/releases/latest | jq -r .tag_name)
-#             curl -L -o lib/postgresql.jar https://jdbc.postgresql.org/download/$latest_version/postgresql-$latest_version.jar
-
-#         - name: Run Liquibase
-#           run: |
-#             # Set up your database connection parameters
-#             export DATABASE_URL=jdbc:${{ env.DATABASE_URL }}
-#             export DATABASE_USERNAME=${{ env.DATABASE_USERNAME }}
-#             export DATABASE_PASSWORD=${{ env.PASSWORD }}
-
-#             # Download Liquibase
-#             curl -L https://github.com/liquibase/liquibase/releases/download/v4.8.0/liquibase-4.8.0.tar.gz -o liquibase.tar.gz
-#             tar -xf liquibase.tar.gz
-
-#             ./liquibase --url=$DATABASE_URL --username=$DATABASE_USERNAME --password=$DATABASE_PASSWORD --changeLogFile=changelog.sql --driver=org.postgresql.Driver --log-level=debug update
