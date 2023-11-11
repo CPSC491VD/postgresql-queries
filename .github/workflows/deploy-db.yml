@@ -25,7 +25,7 @@ jobs:
           changeLogFile: 'changelog.sql'
           username: ${{ env.DATABASE_USERNAME }}
           password: ${{ env.PASSWORD }}
-          url: ${{ env.DATABASE_URL }}
+          url: jdbc:${{ env.DATABASE_URL }}
 # jobs:
 #     deploy-database:
 #       runs-on: ubuntu-latest
