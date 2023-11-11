@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset vu_diep:$(now)
+--changeset vu_diep:2
 CREATE TABLE IF NOT EXISTS iucr (
     iucr VARCHAR(255) UNIQUE NOT NULL,
     primary_description VARCHAR(255) NOT NULL,
@@ -45,8 +45,6 @@ CREATE TABLE IF NOT EXISTS fbi_code (
 	crime_against VARCHAR
 );
 
---liquibase formatted sql
---changeset vu_diep:$(now)
 CREATE TABLE IF NOT EXISTS tbl_analytics AS (
 SELECT 
 f.id,
