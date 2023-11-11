@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS iucr (
     index_code VARCHAR(255) NOT NULL,
     active BOOLEAN NOT NULL
 );
---changeset vu_diep:$(now)
+
 CREATE TABLE IF NOT EXISTS crime_fact_table (
 	id VARCHAR,
 	datetime_id INT,
@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS crime_fact_table (
 	arrest BOOLEAN
 );
 
---changeset vu_diep:$(now)
 CREATE TABLE IF NOT EXISTS crime_date_dimension (
 	datetime_id INT,
 	_month INT,
@@ -32,7 +31,6 @@ CREATE TABLE IF NOT EXISTS crime_date_dimension (
 	crime_date DATE
 );
 
---changeset vu_diep:$(now)
 CREATE TABLE IF NOT EXISTS crime_location_dimension (
 	location_id INT primary key,
 	latitude FLOAT,
@@ -41,7 +39,6 @@ CREATE TABLE IF NOT EXISTS crime_location_dimension (
 	block VARCHAR
 );
 
---changeset vu_diep:$(now)
 CREATE TABLE IF NOT EXISTS fbi_code (
 	id VARCHAR UNIQUE,
 	description VARCHAR,
