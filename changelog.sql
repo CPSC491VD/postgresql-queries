@@ -1,5 +1,5 @@
 --liquibase formatted sql
---changeset vu_diep:3
+--changeset vu_diep:4
 CREATE TABLE IF NOT EXISTS iucr (
     iucr VARCHAR(255) UNIQUE NOT NULL,
     primary_description VARCHAR(255) NOT NULL,
