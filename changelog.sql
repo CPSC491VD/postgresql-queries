@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS fbi_code (
 	crime_against VARCHAR
 );
 
-CREATE TABLE IF NOT EXISTS tbl_analytics AS (
+CREATE OR REPLACE VIEW tbl_analytics AS (
 SELECT 
 f.id,
 d.crime_date,
