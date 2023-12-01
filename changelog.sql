@@ -64,3 +64,14 @@ JOIN crime_date_dimension d ON f.datetime_id = d.datetime_id
 JOIN crime_location_dimension l ON l.location_id = f.location_id
 LEFT JOIN iucr i ON i.iucr = f.iucr 
 );
+--changeset daniel_cazarez:5
+DROP TABLE IF EXISTS crime_date_dimension;
+
+CREATE TABLE IF NOT EXISTS crime_date_dimension (
+	datetime_id INT,
+	_month INT,
+	_day INT,
+	_year INT,
+	_hour INT,
+	crime_date TIMESTAMP
+);
